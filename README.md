@@ -1,7 +1,7 @@
 # This repogitory playbooks based on following URL.
 https://github.com/dell/iac-storage-automation/tree/main/ansible/powerprotect%20data%20manager
 
-But, ad-hoc backup uri has already ommited and fix some part of it.
+But, the uri is used in ad-hoc backup has already ommited and fix some part of other files.
 I added restore to original playbook too.
 
 # Ansible PowerProtect Data Manager
