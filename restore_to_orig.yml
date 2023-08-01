@@ -1,0 +1,77 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  vars:
+    target: "10.119.99.123"
+    username: 'admin'
+    password: 'Password123!'
+    asset_name: 'name_of_asset_to_restore'
+
+  tasks:
+
+    - name: Authenticate with PPDM
+      uri:
+        url: "https://{{ target }}:8443/api/v2/login"
+        method: POST
+        body:
+          username: '{{ username }}'
+          password: '{{ password }}'
+        body_format: json
+        headers:
+          Content-Type: 'application/json'
+        validate_certs: no
+      register: response
+
+    - debug:
+        msg: "Bearer {{ response.json.access_token }}"
+
+# Restore API call requires passing asset ID
+    - name: Getting asset ID
+      uri:
+        url: "https://{{ target }}:8443/api/v2/assets?{{ filter }}"
+        method: GET
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+      register: assets
+
+    - debug:
+        var: assets
+
+# Restore API call requires passing backup ID
+    - name: Get latest backup ID
+      uri:
+        url: "https://{{ target }}:8443/api/v2/assets/{{ assets.json.content.0.id }}/copies"
+        method: GET
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+      register: backupcopies
+
+    - debug:
+            msg: "Backup ID {{ backupcopies.json.content.0.id }} ended at {{ backupcopies.json.content.0.endTime }}"
+
+
+    - name: Perform the restore
+      uri:
+        url: "https://{{ target }}:8443/api/v2/restored-copies"
+        method: POST
+        body:
+          description: "Restore VM to Original"
+          copyId: "{{ backupcopies.json.content.0.id }}"
+          restoreType: "TO_PRODUCTION"
+        body_format: json
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+        status_code: 201
+      register: restore_job
+
+    - debug:
+            msg: "{{ restore_job }}"
+
+
