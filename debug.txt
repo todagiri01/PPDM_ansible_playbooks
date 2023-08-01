@@ -1,0 +1,408 @@
+ok: [localhost] => {
+    "assets": {
+        "access_control_allow_headers": "x-requested-with",
+        "access_control_allow_methods": "PUT, POST, GET, OPTIONS, DELETE",
+        "access_control_max_age": "3600",
+        "changed": false,
+        "connection": "close",
+        "content_security_policy": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'self'",
+        "content_type": "application/json",
+        "cookies": {},
+        "cookies_string": "",
+        "date": "Thu, 27 Jul 2023 03:43:45 GMT",
+        "elapsed": 0,
+        "failed": false,
+        "json": {
+            "_links": {
+                "self": {
+                    "href": "https://10.119.99.123:8443/api/v2/assets?page=1&pageSize=100&filter=name%20eq%20%22sql1%22{&orderby,queryState}",
+                    "templated": true
+                }
+            },
+            "content": [
+                {
+                    "_embedded": {
+                        "protectionPolicy": {
+                            "backupMechanism": null,
+                            "backupRank": null,
+                            "id": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+                            "name": "vm",
+                            "protectionEngine": "VMDIRECT",
+                            "type": "ACTIVE"
+                        },
+                        "protectionlifeCycle": {
+                            "backupMechanism": null,
+                            "backupRank": null,
+                            "id": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+                            "name": "vm",
+                            "protectionEngine": "VMDIRECT",
+                            "type": "ACTIVE"
+                        }
+                    },
+                    "_links": {
+                        "self": {
+                            "href": "https://10.119.99.123:8443/api/v2/assets/ef1c7e7b-fa3f-5bb5-b2f6-02cd63d08a74"
+                        }
+                    },
+                    "aliasRefs": null,
+                    "assetGroupId": null,
+                    "backupDetails": null,
+                    "containerRef": {
+                        "category": "HOST",
+                        "id": "86e3e417-7afb-5991-b36f-d4709c4d4c15"
+                    },
+                    "createdAt": "2023-07-25T06:07:07.465Z",
+                    "createdBy": null,
+                    "credentialId": null,
+                    "credentials": null,
+                    "dataTargetIds": null,
+                    "deleted": false,
+                    "details": {
+                        "vm": {
+                            "clusterName": "null",
+                            "dataMoverType": "INHERIT_FROM_POLICY",
+                            "datacenter": "Datacenter1",
+                            "datastore": [
+                                {
+                                    "datastoreMoref": "Datastore:datastore-12",
+                                    "datastoreName": "datastore2"
+                                }
+                            ],
+                            "disks": [
+                                {
+                                    "excluded": false,
+                                    "key": 2000,
+                                    "label": "Hard disk 1",
+                                    "name": "[datastore2] sql1/sql1.vmdk",
+                                    "sizeInBytes": 64424509440,
+                                    "thinProvisioned": false
+                                },
+                                {
+                                    "excluded": false,
+                                    "key": 2001,
+                                    "label": "Hard disk 2",
+                                    "name": "[datastore2] sql1/sql1_1.vmdk",
+                                    "sizeInBytes": 96636764160,
+                                    "thinProvisioned": true
+                                }
+                            ],
+                            "dnsName": "sql1.eval.dps.local",
+                            "esxName": "dps-r720-1.eval.dps.local",
+                            "externalId": "528451b9-d7cd-c6a8-ddd2-73839da5e9a8",
+                            "folder": "vm",
+                            "guestOS": "Microsoft Windows Server 2019 (64-bit)",
+                            "hostMoref": "HostSystem:host-10",
+                            "hostName": "dps-r720-1.eval.dps.local",
+                            "inventorySourceId": "f212059e-cd91-52dd-8d06-1afb1694b975",
+                            "inventorySourceName": "vc720-1",
+                            "powerState": "POWERED_OFF",
+                            "protectedApplication": "NONE",
+                            "resourcePool": "Resources",
+                            "vcenterName": "vc7201.eval.dps.local",
+                            "vmBiosUuid": "564da178-0da5-4081-a837-98b20ef23a59",
+                            "vmMoref": "VirtualMachine:vm-15"
+                        }
+                    },
+                    "id": "ef1c7e7b-fa3f-5bb5-b2f6-02cd63d08a74",
+                    "lastAvailableCopyTime": "2023-07-26T11:00:06Z",
+                    "name": "sql1",
+                    "networkLabel": null,
+                    "operatingSystem": null,
+                    "preferredHostRef": null,
+                    "protectable": true,
+                    "protectionCapacity": {
+                        "size": 161061273600,
+                        "time": "2023-07-26T11:00:06Z"
+                    },
+                    "protectionLifeCycleId": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+                    "protectionPolicy": {
+                        "backupMechanism": null,
+                        "backupRank": null,
+                        "id": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+                        "name": "vm",
+                        "protectionEngine": "VMDIRECT",
+                        "type": "ACTIVE"
+                    },
+                    "protectionPolicyId": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+                    "protectionProtocol": null,
+                    "protectionStatus": "PROTECTED",
+                    "resourceGroupIds": [],
+                    "resourceGroups": null,
+                    "ruleId": null,
+                    "ruleName": null,
+                    "size": 161061273600,
+                    "status": "AVAILABLE",
+                    "subtype": "VIRTUALMACHINE",
+                    "type": "VMWARE_VIRTUAL_MACHINE",
+                    "updatedAt": "2023-07-26T11:00:48.675Z",
+                    "userTags": [],
+                    "vendor": "VMWARE"
+                }
+            ],
+            "page": {
+                "maxPageableElements": 1,
+                "number": 1,
+                "size": 1,
+                "totalElements": 1,
+                "totalPages": 1
+            }
+        },
+        "keep_alive": "timeout=60",
+        "msg": "OK (unknown bytes)",
+        "redirected": false,
+        "status": 200,
+        "strict_transport_security": "max-age=31536000 ; includeSubDomains",
+        "transfer_encoding": "chunked",
+        "url": "https://10.119.99.123:8443/api/v2/assets?filter=name%20eq%20%22sql1%22",
+        "x_content_type_options": "nosniff",
+        "x_dell_log_trace_id": "TRACE_ID:9ed5f876dac701a4",
+        "x_frame_options": "SAMEORIGIN",
+        "x_xss_protection": "1; mode=block"
+    }
+}
+ok: [localhost] => {
+    "policies": {
+        "access_control_allow_headers": "x-requested-with",
+        "access_control_allow_methods": "PUT, POST, GET, OPTIONS, DELETE",
+        "access_control_max_age": "3600",
+        "changed": false,
+        "connection": "close",
+        "content_security_policy": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'self'",
+        "content_type": "application/json",
+        "cookies": {},
+        "cookies_string": "",
+        "date": "Thu, 27 Jul 2023 07:00:49 GMT",
+        "elapsed": 0,
+        "failed": false,
+        "json": {
+            "_links": {
+                "self": {
+                    "href": "https://10.119.99.123:8443/api/v2/protection-policies/8b99461a-6624-4df2-a0a6-720bfc726c39{?view}",
+                    "templated": true
+                }
+            },
+            "assetType": "VMWARE_VIRTUAL_MACHINE",
+            "category": "CENTRALIZED_PROTECTION",
+            "complianceInterval": null,
+            "createdAt": "2023-07-25T06:19:26.119Z",
+            "credentials": null,
+            "dataConsistency": "CRASH_CONSISTENT",
+            "description": "",
+            "details": {
+                "vm": {
+                    "metadataIndexingEnabled": false,
+                    "protectionEngine": "VMDIRECT"
+                }
+            },
+            "enabled": true,
+            "encrypted": false,
+            "filterIds": [],
+            "forceFull": false,
+            "id": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+            "name": "vm",
+            "passive": false,
+            "priority": 1,
+            "slaId": "",
+            "stages": [
+                {
+                    "attributes": {
+                        "protection": {
+                            "backupMode": "FSS"
+                        },
+                        "vm": {
+                            "appConsistentProtection": false,
+                            "dataMoverType": "SDM",
+                            "disableQuiescing": true,
+                            "excludeSwapFiles": false
+                        }
+                    },
+                    "extendedRetentions": [
+                        {
+                            "retention": {
+                                "id": "7ea8755f-ee00-9f63-33d7-d7ca4625f048",
+                                "interval": 2,
+                                "storageSystemRetentionLock": false,
+                                "unit": "DAY"
+                            },
+                            "selector": {
+                                "backupType": "SYNTHETIC_FULL",
+                                "operationId": "7a279e01-0cc3-29ae-e7ef-2c9974153d85"
+                            }
+                        }
+                    ],
+                    "id": "3d6dd04b-38c2-db2d-fdd6-fabc3d0853b8",
+                    "operations": [
+                        {
+                            "backupType": "SYNTHETIC_FULL",
+                            "id": "7a279e01-0cc3-29ae-e7ef-2c9974153d85",
+                            "schedule": {
+                                "duration": "PT10H",
+                                "frequency": "DAILY",
+                                "startTime": "2023-07-25T11:00:00Z"
+                            }
+                        }
+                    ],
+                    "passive": false,
+                    "retention": {
+                        "id": "cbeec67d-9ce5-d8cf-ad09-f879f282ce59",
+                        "interval": 2,
+                        "storageSystemRetentionLock": false,
+                        "unit": "DAY"
+                    },
+                    "target": {
+                        "dataTargetId": "afc95a76-66bf-4d18-9e04-aacba917526d",
+                        "preferredInterfaceId": "ethMa",
+                        "storageSystemId": "2a02b730-4745-42ce-8871-47838307151a"
+                    },
+                    "type": "PROTECTION"
+                }
+            ],
+            "summary": {
+                "lastExecutionStatus": "SUCCEEDED",
+                "numberOfAssets": 2,
+                "numberOfJobFailures": 0,
+                "numberOfSlaFailures": 0,
+                "numberOfSlaSuccess": 0,
+                "totalAssetCapacity": 178241142784.0,
+                "totalAssetProtectionCapacity": 178241142784.0
+            },
+            "targetStorageProvisionStrategy": "AUTO_PROVISION",
+            "type": "ACTIVE",
+            "updatedAt": "2023-07-25T06:19:55.804Z"
+        },
+        "keep_alive": "timeout=60",
+        "msg": "OK (unknown bytes)",
+        "redirected": false,
+        "referrer_policy": "no-referrer",
+        "status": 200,
+        "strict_transport_security": "max-age=31536000 ; includeSubDomains",
+        "transfer_encoding": "chunked",
+        "url": "https://10.119.99.123:8443/api/v2/protection-policies/8b99461a-6624-4df2-a0a6-720bfc726c39",
+        "x_content_type_options": "nosniff",
+        "x_dell_log_trace_id": "TRACE_ID:acbc585d2cc66343",
+        "x_frame_options": "SAMEORIGIN",
+        "x_xss_protection": "1; mode=block"
+    }
+}
+ok: [localhost] => {
+    "jobDetails": {
+        "access_control_allow_headers": "x-requested-with, Origin, X-Requested-With, Content-Type, Accept",
+        "access_control_allow_methods": "PUT, POST, GET, OPTIONS, DELETE, POST, PUT, GET, OPTIONS, DELETE",
+        "access_control_allow_origin": "*",
+        "access_control_max_age": "3600, 3600",
+        "attempts": 4,
+        "changed": false,
+        "connection": "close",
+        "content_security_policy": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'self'",
+        "content_type": "application/json",
+        "cookies": {},
+        "cookies_string": "",
+        "date": "Fri, 28 Jul 2023 04:08:24 GMT",
+        "elapsed": 0,
+        "failed": false,
+        "json": {
+            "_links": {
+                "self": {
+                    "href": "https://10.119.99.123:8443/api/v2/activities/a24ff07b-2e0a-44be-9874-cd0f63f6a21e"
+                }
+            },
+            "actions": {
+                "cancelable": false,
+                "retryable": false
+            },
+            "activityInitiatedType": "MANUAL",
+            "asset": {
+                "type": "VMWARE_VIRTUAL_MACHINE"
+            },
+            "averageBytesTransferred": 0.0,
+            "averageDuration": 216.0,
+            "category": "PROTECT",
+            "classType": "JOB_GROUP",
+            "createTime": "2023-07-28T04:06:49.481Z",
+            "displayId": "6E1F29D1",
+            "duration": 216,
+            "endTime": "2023-07-28T04:08:19.880Z",
+            "extendedData": {
+                "keyValues": []
+            },
+            "groupByOptions": [
+                "VIRTUAL_DATACENTER",
+                "VM_GUEST_OS",
+                "VMWARE_CLUSTER",
+                "ESX_HOST",
+                "DATASTORE",
+                "NONE"
+            ],
+            "hasChildren": true,
+            "hasLogs": false,
+            "id": "a24ff07b-2e0a-44be-9874-cd0f63f6a21e",
+            "name": "Manually Protecting VM - vm - PROTECTION - Synthetic Full",
+            "owner": {
+                "name": "workflow"
+            },
+            "progress": 100,
+            "protectionPolicy": {
+                "id": "8b99461a-6624-4df2-a0a6-720bfc726c39",
+                "name": "vm",
+                "type": "VMWARE_VIRTUAL_MACHINE"
+            },
+            "result": {
+                "status": "OK",
+                "summaries": []
+            },
+            "source": {
+                "type": "DATA_MANAGER"
+            },
+            "startTime": "2023-07-28T04:06:49.481Z",
+            "state": "COMPLETED",
+            "stateSummaries": {
+                "canceled": 0,
+                "completed": 1,
+                "criticalEvent": 0,
+                "failed": 0,
+                "ok": 1,
+                "okWithErrors": 0,
+                "pendingCancellation": 0,
+                "queued": 0,
+                "running": 0,
+                "skipped": 0,
+                "total": 1,
+                "unknown": 0
+            },
+            "stats": {
+                "assetSizeInBytes": 161061273600,
+                "bytesTransferred": 0,
+                "bytesTransferredThroughput": 0.0,
+                "bytesTransferredThroughputUnitOfTime": "second",
+                "numberOfAssets": 1,
+                "numberOfProtectedAssets": 1,
+                "postCompBytes": 0,
+                "preCompBytes": 0,
+                "storageCompStats": {
+                    "dedupedPreCompSizeInBytes": 0,
+                    "redundantSegmentsCount": 3768247,
+                    "segmentsCount": 3768247
+                }
+            },
+            "storageSystem": {
+                "id": "2a02b730-4745-42ce-8871-47838307151a",
+                "name": "DD2200-1.dps-oh1.local"
+            },
+            "subcategory": "SYNTHETIC_FULL",
+            "updateTime": "2023-07-28T04:08:19.881Z"
+        },
+        "keep_alive": "timeout=60",
+        "msg": "OK (unknown bytes)",
+        "redirected": false,
+        "status": 200,
+        "strict_transport_security": "max-age=31536000 ; includeSubDomains",
+        "transfer_encoding": "chunked",
+        "url": "https://10.119.99.123:8443/api/v2/activities/a24ff07b-2e0a-44be-9874-cd0f63f6a21e",
+        "x_content_type_options": "nosniff",
+        "x_dell_log_trace_id": "TRACE_ID:b488254fe784cf5b",
+        "x_frame_options": "SAMEORIGIN",
+        "x_xss_protection": "1; mode=block"
+    }
+}
+
+
