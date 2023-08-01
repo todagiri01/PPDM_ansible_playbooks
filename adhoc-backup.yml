@@ -3,7 +3,7 @@
   gather_facts: no
 
   vars:
-    asset_name: "sql1"
+    asset_name: "Cent82"
     target: "10.119.99.123"
     username: "admin"
     password: "Password123!"

@@ -6,7 +6,8 @@
     target: "10.119.99.123"
     username: 'admin'
     password: 'Password123!'
-    asset_name: 'name_of_asset_to_restore'
+    asset_name: 'Cent82'
+    filter: 'filter=name%20eq%20%22{{ asset_name }}%22'
 
   tasks:
 
