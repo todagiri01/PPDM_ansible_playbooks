@@ -7,12 +7,11 @@
     username: 'admin'
     password: 'Password123!'
     asset_name: 'MySQL'
-    #Getting These vars require manually query...
-    #vcenter_id: 'abcd1234-abcd-59df-a5e9-a3e30fd61234'
-    datacenter_id: 'Datacenter1'
-    host_id: 'dps-r720-1.eval.dps.local'
+    #Following vars different from VC GUI names. Require to find manul restore from PPDM GUI and check values.
+    datacenter_id: 'datacenter-3'
+    host_id: 'host-10'
     #cluster_id: 'domain-c6'
-    datastore_id: 'datastore2'
+    datastore_id: 'datastore-12'
     filter: 'filter=name%20eq%20%22{{ asset_name }}%22'
     filter2: 'filter=type%20eq%20%22VCENTER%22'
 
