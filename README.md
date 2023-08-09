@@ -11,5 +11,6 @@ A collection of Ansible playbooks for Dell PowerProtect Data Manager. The playbo
 2. perform an ad-hoc backup of an asset
 3. restore the latest backup available to new vm(no test)
 4. restore the latest backup available to original vm
+5. Read Lock mysql talbes, perform ad-hoc backup and unlock mysql
 
 
