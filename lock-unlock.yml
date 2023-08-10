@@ -1,0 +1,35 @@
+---
+- name: Lock MySQL
+  hosts: mysql
+  gather_facts: no
+
+  vars: 
+    sqluser: "root"
+    sqlpass: "Password123!"
+
+  tasks:
+    - name: execute lock
+      command: 
+        cmd: 'mysql -u {{ sqluser }} -p{{ sqlpass }} -e "FLUSH TABLES WITH READ LOCK"'
+      register: result
+    
+    - debug:
+        var: result
+
+
+- name: UNLock MySQL
+  hosts: mysql
+  gather_facts: no
+
+  vars: 
+    sqluser: "root"
+    sqlpass: "Password123!"
+
+  tasks:
+    - name: execute lock
+      command: 
+        cmd: 'mysql -u {{ sqluser }} -p{{ sqlpass }} -e "UNLOCK TABLES"'
+      register: result
+    
+    - debug:
+        var: result

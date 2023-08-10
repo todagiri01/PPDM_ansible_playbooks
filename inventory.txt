@@ -1,0 +1,2 @@
+localhost   ansible_connection=local
+mysql   ansible_host=mysql1.eval.dps.local  ansible_connection=ssh  ansible_user=root   ansible_ssh_pass=Password123!
