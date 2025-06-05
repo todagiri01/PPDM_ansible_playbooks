@@ -1,0 +1,111 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  vars:
+    asset_name: "Cent8-11"
+    target: "10.119.99.135"
+    username: "admin"
+    password: "Password0120!"
+    # The filter syntax contains spaces and doublequotes. This trick helps us to build it
+    filter: 'filter=name%20eq%20%22{{ asset_name }}%22'
+
+  tasks:
+
+    - name: Authenticate with PPDM
+      uri:
+        url: "https://{{ target }}:8443/api/v2/login"
+        method: POST
+        body:
+          username: '{{ username }}'
+          password: '{{ password }}'
+        body_format: json
+        headers:
+          Content-Type: 'application/json'
+        validate_certs: no
+        use_proxy: no
+      register: response
+
+    - debug:
+        msg: "Bearer {{ response.json.access_token }}"
+
+# Triggering a backup is doing by passing the asset ID, so we need to get it first    
+    - name: Getting asset ID
+      uri:
+        url: "https://{{ target }}:8443/api/v2/assets?{{ filter }}"
+        method: GET
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+      register: assets
+
+    - debug:
+        var: assets
+
+    - name: Getting policy ID
+      uri:
+        url: "https://{{ target }}:8443/api/v3/protection-policies/{{ assets.json.content.0.protectionPolicyId }}"
+        method: GET
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+      register: policies
+
+    - debug: 
+        var: policies
+
+    - name: Trigger the backup
+      uri:
+        url: "https://{{ target }}:8443/api/v3/protections"
+        method: POST
+        body_format: json
+        body: 
+          source:
+            assetIds: 
+              - "{{ assets.json.content.0.id }}"
+          policy:
+            id: "{{ policies.json.id }}" 
+            operation:
+              backupLevel: "{{ policies.json.objectives.0.operations.0.backupLevel }}"
+            objectives:
+              - id: "{{ policies.json.objectives.0.id }}"
+# Additiona attribute require for strict mode
+#                retentions:
+#                  -time:
+#                    -type: "RETENTION"
+#                      unitValue: "DAY"
+#                      UnitType: 3
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+        status_code: 202
+      register: trigger
+
+    - debug:
+        var: trigger
+
+    - debug:
+        msg: "Job ID: {{ trigger.json.results.0.activityId }}"
+
+    - name: Get Job status
+      uri:
+        url: "https://{{ target }}:8443/api/v2/activities/{{ trigger.json.results.0.activityId }}"
+        method: GET
+        headers:
+          Content-Type: 'application/json'
+          Authorization: 'Bearer {{ response.json.access_token }}'
+        validate_certs: no
+        status_code: 200
+      register: jobDetails
+      until: "'COMPLETED' in jobDetails.json.state" 
+      retries: 20
+      delay: 30
+
+  # - debug:
+  #     var: jobDetails
+
+    - debug:
+       msg: "Job status {{ jobDetails.json.result.status }}, bytes transferred {{ jobDetails.json.stats.bytesTransferred }}"

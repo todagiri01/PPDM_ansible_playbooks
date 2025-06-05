@@ -3,10 +3,10 @@
   gather_facts: no
 
   vars:
-    target: "10.119.99.123"
+    target: "10.119.99.135"
     username: "admin"
-    password: "Password123!"
-    policy_name: "vm"
+    password: "Password0120!"
+    policy_name: "PLC1"
     asset_name: "Cent82"
     # The syntax of filters in PPDM requires spaces and double quotes. Defining them here does the trick
     #filter: "filter=name%20eq%20%22{{ policy_name }}PLC%22"
