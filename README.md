@@ -13,7 +13,7 @@ A collection of Ansible playbooks for Dell PowerProtect Data Manager. The playbo
 4. restore the latest backup available to original vm
 5. Read Lock mysql talbes, perform ad-hoc backup and unlock mysql
 
-# 2025/0605
+### 2025/0605
 Add v3 API version play books
 
 # このレポジトリのPlaybookは以下のURLのものをベースにしています。
@@ -31,7 +31,7 @@ Dell PowerProtect Data Manager用のAnsible Playbookのコレクションです�
 4. オリジナルのVMへ最新のバックアップからのリストア
 5. mysqlのテーブルリードロックを行い、アドホックバックアップを実行、その後解除
 
-# 2025/0605
+### 2025/0605
 v3 APIバージョンのプレイブックを追加
 
 
